@@ -26,12 +26,8 @@
 *.exe
 *.out
 *.app
-.idea/.name
-.idea/Lab 1.iml
-.idea/encodings.xml
-.idea/misc.xml
-.idea/modules.xml
-.idea/workspace.xml
+
+.idea/*
 cmake-build-debug/CMakeCache.txt
 cmake-build-debug/CMakeFiles/3.13.4/CMakeCCompiler.cmake
 cmake-build-debug/CMakeFiles/3.13.4/CMakeCXXCompiler.cmake
