@@ -33,7 +33,8 @@ void readVectors(string file, vector<double> &vectorA, vector<double> &vectorB, 
     f.close();
 }
 
-vector<double> solveTDM(vector<double> &vectorA, vector<double> &vectorB, vector<double> &vectorC, vector<double> &vectorD) {
+vector<double>
+solveTDM(vector<double> &vectorA, vector<double> &vectorB, vector<double> &vectorC, vector<double> &vectorD) {
 
     vector<double> acVector(vectorA), bcVector(vectorB), ccVector(vectorC), dcVector(vectorD);
     double mc;
@@ -70,7 +71,6 @@ int main() {
     for (int i = 0; i < result.size(); i++) {
         cout << result[i] << " ";
     }
-
 
     return 0;
 }
