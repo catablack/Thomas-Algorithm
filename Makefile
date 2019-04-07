@@ -1,4 +1,4 @@
 all:
-        g++ -std=c++11 -fopenmp *.cpp -o exec
+	g++ -std=c++11 -fopenmp parallel.cpp -o exec
 clean:
-        rm -rf exec
+	rm -rf exec

@@ -50,7 +50,7 @@ int main(int argc, char *argv[]) {
 
     vector<double> aVector, bVector, cVector, dVector, result;
 
-    readVectors("../date.in", aVector, bVector, cVector, dVector);
+    readVectors("./date.in", aVector, bVector, cVector, dVector);
 
 
     size = bVector.size();
