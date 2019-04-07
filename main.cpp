@@ -2,31 +2,39 @@
 #include <fstream>
 #include <vector>
 #include <thread>
+#include <omp.h>
+#include <zconf.h>
 
 using namespace std;
-
 
 void readVectors(string file, vector<double> &vectorA, vector<double> &vectorB, vector<double> &vectorC,
                  vector<double> &vectorX) {
 
     ifstream f;
     double x;
+    int n;
 
     f.open(file);
 
-    while (f >> x && x != 0) {
+    f >> n;
+
+    for (int i = 0; i < n - 1; i++) {
+        f >> x;
         vectorA.push_back(x);
     }
 
-    while (f >> x && x != 0) {
+    for (int i = 0; i < n; i++) {
+        f >> x;
         vectorB.push_back(x);
     }
 
-    while (f >> x && x != 0) {
+    for (int i = 0; i < n - 1; i++) {
+        f >> x;
         vectorC.push_back(x);
     }
 
-    while (f >> x && x != 0) {
+    for (int i = 0; i < n; i++) {
+        f >> x;
         vectorX.push_back(x);
     }
 
@@ -66,7 +74,17 @@ int main() {
     aVector.insert(aVector.begin(), 0);
     cVector.insert(cVector.end(), 0);
 
+    cout << "Start " << endl;
+    auto start = std::chrono::high_resolution_clock::now();
+
     result = solveTDM(aVector, bVector, cVector, dVector);
+
+    auto finish = std::chrono::high_resolution_clock::now();
+    cout << "Finish " << endl;
+
+    std::chrono::duration<double> elapsed = finish - start;
+
+    cout << "Tmie :" << elapsed.count() << endl;
 
     for (int i = 0; i < result.size(); i++) {
         cout << result[i] << " ";

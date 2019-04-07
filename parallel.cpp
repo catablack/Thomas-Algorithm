@@ -42,7 +42,7 @@ void readVectors(string file, vector<double> &vectorA, vector<double> &vectorB, 
 }
 
 
-int main() {
+int main(int argc, char *argv[]) {
     int i, j, k;
     int index1, index2, offset;
     double alpha, gamma;
@@ -130,10 +130,12 @@ int main() {
 
     chrono::duration<double> elapsed = finish - start;
 
-    cout << "Tmie :" << elapsed.count() << endl;
+    cout << "Tmie :" << elapsed.count() << " ms" << endl;
 
-    for (i = 0; i < size; i++) {
-        cout << x[i] << endl;
+    if (argc > 1 && argv[1] == "print") {
+        for (i = 0; i < size; i++) {
+            cout << x[i] << endl;
+        }
     }
 
     //cleanup
